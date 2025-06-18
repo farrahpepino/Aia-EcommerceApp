@@ -1,0 +1,40 @@
+<!-- <div>
+    <img 
+    ngSrc="cirracloud-logo-final.png"
+    width=100
+    height=100
+    alt="symbol"
+    priority
+    />
+</div> -->
+<div class="main">
+    <div class="logo">
+        <img
+        ngSrc="cirracloud.png"
+        width=112
+        height=26
+        alt="logo"
+        priority
+        />
+    </div>
+    <div class="inner">
+        <div [ngStyle]="{'text-align': 'center'}">
+            <button class="t-btn">+</button>
+        </div>
+        <div>
+            <div class="boundary" appImageDrag (files)="filesDropped($event)"  >
+                    
+                    <div *ngIf="uploadedFiles?.length">
+                        <div class="box" cdkDragBoundary=".boundary" cdkDrag *ngFor="let file of uploadedFiles">
+                        <img [src]="file.url" alt="uploaded file"  class="uploadedImage"/>       
+                        </div>
+                    </div>
+                    @if(uploadedFiles.length===0){
+                        <p [ngStyle]="{'justify-content': 'center', 'align-items': 'center', 'display': 'flex', height:'90vh'}">Drop your files here</p>
+                    }
+            </div>
+        </div>
+    </div>
+</div>
+
+
