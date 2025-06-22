@@ -22,16 +22,24 @@
             <button class="t-btn">+</button>
         </div>
         <div>
-            <div class="boundary" appImageDrag (files)="filesDropped($event)"  >
+            <div class="boundary" appImageUpload
+            (files)="filesDropped($event)"  >
                     
-                    <div *ngIf="uploadedFiles?.length">
-                        <div class="box" cdkDragBoundary=".boundary" cdkDrag *ngFor="let file of uploadedFiles">
-                        <img [src]="file.url" alt="uploaded file"  class="uploadedImage"/>       
+                    <div> 
+                        <div class="box" 
+                        cdkDragBoundary=".boundary" 
+                        cdkDrag
+                        *ngFor="let file of uploadedFiles"
+
+                      >
+                            <img [src]="file.url" alt="uploaded file"  class="uploadedImage"/>       
                         </div>
                     </div>
-                    @if(uploadedFiles.length===0){
-                        <p [ngStyle]="{'justify-content': 'center', 'align-items': 'center', 'display': 'flex', height:'90vh'}">Drop your files here</p>
-                    }
+                    
+                    <p [ngStyle]="{'justify-content': 'center', 'align-items': 'center', 'display': 'flex', height:'90vh'}"
+                    *ngIf="uploadedFiles.length === 0"
+                    >Drop your files here</p>
+
             </div>
         </div>
     </div>
