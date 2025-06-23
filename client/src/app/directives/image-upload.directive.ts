@@ -6,24 +6,24 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class ImageUploadDirective {
   @Output('files') files: EventEmitter < FileHandle[] > = new EventEmitter();  
-  @HostBinding('style.background') public background = '#eee';  
+  @HostBinding('style.background') public background = backgroundColor.Default;  
   
   constructor(private sanitizer: DomSanitizer) {}  
 
   @HostListener('dragover', ['$event']) public onDragOver(event:DragEvent){
     event.preventDefault();
     event.stopPropagation();
-    this.background = '#999';
+    this.background = backgroundColor.Drag;  
   }
   @HostListener('dragleave', ['$event']) public onDragLeave(event:DragEvent){
     event.preventDefault();
     event.stopPropagation();
-    this.background = '#eee';
+    this.background = backgroundColor.Default;  
   }
     @HostListener('drop', ['$event']) public onDrop(event: DragEvent) {  
     event.preventDefault();
     event.stopPropagation();
-    this.background = '#eee';  
+    this.background = backgroundColor.Dropped;  
     let files: FileHandle[] = [];  
     if (!event.dataTransfer) {
       return; 
@@ -41,6 +41,11 @@ export class ImageUploadDirective {
     }  
 }
 
+}
 
+enum backgroundColor {
 
+  Drag = '#999',
+  Dropped = '#ffffff',
+  Default = '#eee'
 }
