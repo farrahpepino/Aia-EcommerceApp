@@ -1,3 +1,18 @@
 import { Routes } from '@angular/router';
-
-export const routes: Routes = [];
+import { LoginComponent } from './components/auth/login/login.component';
+import { RegisterComponent } from './components/auth/register/register.component';
+import { MoodboardComponent } from './components/moodboard/moodboard.component';
+export const routes: Routes = [
+    {
+        path: 'login',
+        component: LoginComponent
+    },
+    {
+        path: 'register',
+        component: RegisterComponent
+    },
+    {
+        path: '',
+        component: MoodboardComponent
+    },
+];

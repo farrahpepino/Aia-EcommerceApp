@@ -1,7 +1,8 @@
 namespace server.Models{
     public class Moodboard{
         public int Id {get; set;}
-        public string UserId {get; set;}
-        public string[] Files {get; set;} //objects position files: fileurl;,x,y photos
+        public required string UserId { get; set; }
+        public required List<string> Files { get; set; }
+        //objects position files: fileurl;,x,y photos
     }
 }

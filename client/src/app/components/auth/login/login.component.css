@@ -1,38 +1,51 @@
-.center {
-    display: flex;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
+.body{
     width: 100%;
-    margin: 0;
-  }
-  
-  .content {
+    height: 98vh;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px; 
-  }
-  
-  .logo-group {
+    align-items: center;   
+    justify-content: center;  
+}
+
+#LogoSection{
+    width: 50%;
+
+}
+#LogoSection img{
     display: flex;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .row {
+    flex-direction: column;  
+    margin: 0 auto;
+}
+
+#FormSection{
+    width:50%;
+}
+
+#FormSection form{
     display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  button {
-    border-radius: 100px;
-    border: solid gray 0.5px;
-    background-color: white;
-    padding: 4px 8px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
+    flex-direction: column;  /* stack inputs vertically */
+    gap: 1rem;               /* space between inputs */
+    margin: 0 auto;  
+}
+
+#FormSection input{
+    max-width: 20rem;
+    height: 2rem;
+    outline: none;
+    border: none;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+}
+
+#FormSection button{
+    max-width: 20.5rem;
+    height: 2.5rem;
+    outline: none;
+    border: none;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+}
+
+#FormSection button:not(:disabled):hover{
+    background-color: #2C2C2C;
+    color: white;
+}

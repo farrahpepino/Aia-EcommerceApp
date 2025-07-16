@@ -1,0 +1,33 @@
+<div class="body">
+    <section id="LogoSection">
+        <img
+        src="cirracloud.png"
+        width=220
+        height="auto"
+        alt="logo"
+        priority
+        />
+        <img
+        src="cirracloud-logo-final.png"
+        width=150
+        height="auto"
+        alt="logo"
+        priority
+        />
+    </section>
+
+    <section id="FormSection">
+        <form [formGroup]="registerForm" (ngSubmit)="handleSubmit()">
+            <input type="text" placeholder="Username" formControlName="username" required />
+            <input type="email" placeholder="Email" formControlName="email" required />
+            <input type="password" placeholder="Password" formControlName="password" required />
+            <input type="password" placeholder="Confirm Password" formControlName="confirmPassword" required />
+            <button type="submit" [disabled]="registerForm.invalid">Sign up</button>
+        </form>
+        <br>
+        <p>Already have an account? <a routerLink="/login"><strong>Sign in.</strong></a></p>
+
+    </section>
+</div>
+
+

@@ -3,6 +3,14 @@
     justify-content:center;
 }
 
+#header{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .main{
     height:100%;
     font-family: 'Montserrat', sans-serif;

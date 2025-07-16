@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { CdkDrag, CdkDragEnd } from '@angular/cdk/drag-drop';
 import { ImageUploadDirective } from '../../directives/image-upload.directive';
 import { FileHandle } from '../../directives/file-handle';
 @Component({
   selector: 'app-moodboard',
-  imports: [NgOptimizedImage, CdkDrag, CommonModule, ImageUploadDirective],
+  imports: [ CdkDrag, CommonModule, ImageUploadDirective],
   templateUrl: './moodboard.component.html',
   styleUrl: './moodboard.component.css'
 })
