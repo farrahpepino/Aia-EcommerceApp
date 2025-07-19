@@ -8,7 +8,7 @@
         height=26
         alt="logo"
         priority
-        />
+        /> 
     </div>
     <p>Sign out</p>
     </div>
@@ -24,13 +24,16 @@
                         <div class="box" 
                         cdkDragBoundary=".boundary" 
                         cdkDrag
-                        *ngFor="let file of uploadedFiles"
+                        [cdkDragFreeDragPosition]="file.position"
+                        (cdkDragEnded)="onDragEnd($event, i)"
+                        *ngFor="let file of uploadedFiles; let i = index"
+                        
 
                       >
                             <img [src]="file.url" alt="uploaded file"  class="uploadedImage"/>       
                         </div>
                     </div>
-                    
+                
                     <p [ngStyle]="{'justify-content': 'center', 'align-items': 'center', 'display': 'flex', height:'90vh'}"
                     *ngIf="uploadedFiles.length === 0"
                     >Drop your files here</p>
