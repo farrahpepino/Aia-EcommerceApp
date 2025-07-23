@@ -4085,11 +4085,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/farrahpepino/Documents/GitHub/DnDMoodboard/server/server.csproj",
+      "projectUniqueName": "/Users/farrahpepino/Documents/GitHub/Aia/server/server.csproj",
       "projectName": "server",
-      "projectPath": "/Users/farrahpepino/Documents/GitHub/DnDMoodboard/server/server.csproj",
+      "projectPath": "/Users/farrahpepino/Documents/GitHub/Aia/server/server.csproj",
       "packagesPath": "/Users/farrahpepino/.nuget/packages/",
-      "outputPath": "/Users/farrahpepino/Documents/GitHub/DnDMoodboard/server/obj/",
+      "outputPath": "/Users/farrahpepino/Documents/GitHub/Aia/server/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/farrahpepino/.nuget/NuGet/NuGet.Config"

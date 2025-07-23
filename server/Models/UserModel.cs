@@ -4,5 +4,6 @@ namespace server.Models{
         public string? Email {get; set;}
         public required string Password {get; set;}
         public required string Username {get; set;}
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
 }

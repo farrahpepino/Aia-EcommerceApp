@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
-import { NgOptimizedImage } from '@angular/common';
 import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import { User, UserService } from '../../../services/user.service';
 import { v4 as uuidv4 } from 'uuid';
-import {RouterLink} from '@angular/router';
-import { Router } from '@angular/router';
+import {RouterLink, Router} from '@angular/router';
 @Component({
   selector: 'app-register',
   imports: [ReactiveFormsModule, RouterLink],

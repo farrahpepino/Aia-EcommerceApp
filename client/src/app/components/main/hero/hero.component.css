@@ -1,0 +1,10 @@
+.container {
+    position: relative;
+    width: 100vw;
+    background-image: url("https://gisellekangx.wordpress.com/wp-content/uploads/2019/05/orseund_iris_scarlett_editorial_1-1.jpg");
+    height: 100vh;
+    background-size: cover;           
+    background-position: center;      
+    background-repeat: no-repeat;   
+    overflow: hidden;  
+}

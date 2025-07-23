@@ -1,0 +1,33 @@
+<div class="Nav">
+    <button (click)="toggleMenu()"  [disabled]="cartActive">menu</button>
+    <!-- <button> -->
+        <a routerLink="/">
+        <img 
+            class="logo"
+            src="assets/aia.png"
+            alt="logo"
+            priority
+        />
+        </a>
+    <!-- </button>    -->
+    
+    <div class="right-btn">
+        <button (click)="goToLogin()"  [disabled]="menuActive">profile</button>
+        <button (click)="toggleCart()"  [disabled]="menuActive">cart</button>
+    </div>
+</div>
+
+
+<div class="menu" #menuRef [class.active]="menuActive">
+    <button (click)="toggleMenu()">x</button>
+    <ul>
+        <li><a routerLink="/shop">shop</a></li>
+        <li>studio</li>
+    </ul>
+</div>
+
+<div class="cart" #cartRef [class.active]="cartActive">
+    <button (click)="toggleCart()">x</button>
+    <p>cart (0)</p>
+    
+</div>

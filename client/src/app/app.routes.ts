@@ -1,7 +1,9 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
-import { MoodboardComponent } from './components/moodboard/moodboard.component';
+import { HeroComponent } from './components/main/hero/hero.component';
+import { ShopComponent } from './components/main/shop/shop.component';
+
 export const routes: Routes = [
     {
         path: 'login',
@@ -13,6 +15,10 @@ export const routes: Routes = [
     },
     {
         path: '',
-        component: MoodboardComponent
+        component: HeroComponent
     },
+    {
+        path: 'shop',
+        component: ShopComponent
+    }
 ];

@@ -1,0 +1,95 @@
+.Nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    z-index:1;
+}
+
+.menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 35%;
+    background-color: white;
+    z-index: 2;
+    padding: 1rem;
+    visibility: hidden;
+    height: 100vh;  
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none; 
+    transition:
+        transform 0.4s ease,
+        opacity 0.3s ease,
+        visibility 0.1s linear 0.2s;
+}
+
+.cart{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 35%;
+    background-color: white;
+    z-index: 1;
+    padding: 1rem;
+    visibility: hidden;
+    height: 100vh;  
+    overflow: auto;
+    opacity: 0;
+    transform: translateX(100%);
+    pointer-events: none;
+    transition:
+        transform 0.4s ease,
+        opacity 0.3s ease,
+        visibility 0.1s linear 0.2s;
+}
+
+.menu.active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+    transition-delay: 0.2s;
+}
+
+.cart.active{
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+    transition-delay: 0.2s; 
+}
+
+ul{
+    list-style-type: none;
+}
+
+.logo{
+    width: 4rem;
+}
+
+button{
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    outline: none;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+  
+.right-btn{
+    display: flex;
+    gap:1rem;
+}
+
+
+ul{
+    list-style-type: none;
+}
