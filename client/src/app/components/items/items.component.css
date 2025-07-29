@@ -34,6 +34,7 @@ img:hover {
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    align-items: center;
     
 }
   
@@ -55,6 +56,40 @@ button{
     background-color: transparent;
     text-decoration: underline;
 }
- 
 
+.sizes{
+    background-color: rgb(0,0,0, 0.8);
+    bottom: 70%; 
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc; 
+}
 
+.sizes.visible {
+    display: flex;
+  }
+
+.p-10{
+    padding: 10px 10px;
+}
+
+.parent {
+    position: relative;
+    display: inline-block;
+    z-index: 0;
+}
+
+.child{
+    z-index: 10;
+    display: none;
+    position: absolute; 
+}
+.sizes button{
+    color: white;
+}
+
+@media(max-width:820px){
+    .container{
+        justify-content: center;
+    }
+}

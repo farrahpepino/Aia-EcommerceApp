@@ -30,7 +30,6 @@ namespace server.Controllers{
                 var result = await connection.ExecuteAsync(query, user);
                 return Ok(new {message="User registered successfully"});
             }
-
             catch (Exception ex){
                 return StatusCode(500, new { message = "Server error", detail = ex.Message });
             }

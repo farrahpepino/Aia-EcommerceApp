@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "SKU": "OI-MINBUST-WHT",
+        "brand": "Orseund Iris",    
+        "name": "Minimal Bustier",
+        "color": "white",
+        "price": 245,
+        "image": "/images/orseund.webp",
+        "sizes": ["XXS", "XS", "S", "M", "L"]
+    },
+    {
+        "id": 2,
+        "SKU": "OI-MINBUST-MDB",
+        "brand": "Orseund Iris",    
+        "name": "Minimal Bustier",
+        "color": "midnight blue",
+        "price": 245,
+        "image": "/images/orseund2.webp",
+        "sizes": ["XXS", "XS", "S", "M", "L"]
+    },
+    {
+        "id": 3,
+        "SKU": "OI-WKNDKNT-BLK",
+        "brand": "Orseund Iris",    
+        "name": "The Weekend Knit Cardigane",
+        "color": "black",
+        "price": 345,
+        "image": "/images/orseund3.webp",
+        "sizes": [ "XS", "S", "M", "L"]
+    }
+]

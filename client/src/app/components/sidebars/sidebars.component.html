@@ -18,16 +18,36 @@
 </div>
 
 
-<div class="menu" #menuRef [class.active]="menuActive">
+<div class="menu mobile" #menuRef [class.active]="menuActive">
     <button (click)="toggleMenu()">x</button>
     <ul>
         <li><a routerLink="/shop">shop</a></li>
-        <li>studio</li>
+        <li>about</li>
     </ul>
 </div>
 
-<div class="cart" #cartRef [class.active]="cartActive">
+<div class="cart mobile" #cartRef [class.active]="cartActive">
     <button (click)="toggleCart()">x</button>
     <p>cart (0)</p>
+
+    <div class="row w-90" >
+        <div class="row">
+            <img src="assets/orseund.webp" alt="item" class="item-cart-img" priority/>
+            <div class="details">
+                <p class="strong">Orseund Iris Minimal Bustier</p>
+                <p>245 USD</p>
+                <p>white</p>
+                <p>XS</p> 
+            </div>
+        </div>
+
+        <div class="details">
+            <p class="strong">490 USD</p>
+            <p><button>+</button>2<button>-</button></p>
+        </div>
+    </div>
+
+    <button class="p">continue to checkout</button>
+
     
 </div>

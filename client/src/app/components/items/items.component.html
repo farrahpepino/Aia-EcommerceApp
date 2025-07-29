@@ -20,7 +20,16 @@
         <p>Orseund Iris The Weekend Knit Cardigane</p>
         <div class="details">
             <p>345 USD</p>
-            <button>add to cart</button>
+            <div   class="parent" >
+                <button class="p-10" (mouseenter)="showSizes = true">add to cart</button>
+                <div class="sizes child" [class.visible]="showSizes"  (mouseleave)="showSizes = false">
+                    <button>XS</button>
+                    <button>S</button>
+                    <button>M</button>
+                    <button>L</button>
+                    <button>XL</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

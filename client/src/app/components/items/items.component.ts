@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-items',
@@ -7,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './items.component.css'
 })
 export class ItemsComponent {
-
+ 
+  showSizes = false;
+  
 }
