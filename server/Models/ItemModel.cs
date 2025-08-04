@@ -7,5 +7,6 @@ namespace server.Models{
         public string ImagePath {get; set;}
         public decimal ItemPrice { get; set; }
         public string Color {get; set;}
+        public List<string> ItemSizes { get; set; }
     }
 }

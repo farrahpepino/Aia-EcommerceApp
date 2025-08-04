@@ -1,20 +1,4 @@
-<div class="container">
-    <div class="item">
-        <img src="assets/orseund.webp" alt="item"/>
-        <p>Orseund Iris Minimal Bustier</p>
-        <div class="details">
-            <p>245 USD</p>
-            <button>add to cart</button>
-        </div>
-    </div>
-    <div class="item">
-        <img src="assets/orseund2.webp" alt="item"/>
-        <p>Orseund Iris Minimal Bustier</p>
-        <div class="details">
-            <p>245 USD</p>
-            <button>add to cart</button>
-        </div>
-    </div>
+<!-- <div class="container" >
     <div class="item">
         <img src="assets/orseund3.webp" alt="item"/>
         <p>Orseund Iris The Weekend Knit Cardigane</p>
@@ -32,4 +16,23 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+<div class="container">
+    <div class="item" *ngFor="let product of products">
+        <img 
+        [src]="'http://localhost:5005' + product.imagePath" alt="{{ product.itemBrand + ' ' + product.ItemName }}" />
+        <p>{{ product.itemBrand }} {{ product.itemName }}</p>
+        <div class="details">
+        <p>{{ product.itemPrice }} USD</p>
+        <div class="parent">
+          <button class="p-10" (mouseenter)="showSizes = true" (mouseleave)="showSizes = false">
+            add to cart
+          </button>
+          <div class="sizes child" [class.visible]="showSizes">
+            <button *ngFor="let size of product.itemSizes">{{ size }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
