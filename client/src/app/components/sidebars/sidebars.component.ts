@@ -9,6 +9,7 @@ import { Router, RouterLink } from '@angular/router';
   templateUrl: './sidebars.component.html',
   styleUrl: './sidebars.component.css'
 })
+
 export class SidebarsComponent  {
   menuActive = false;
   cartActive = false;
@@ -17,7 +18,6 @@ export class SidebarsComponent  {
   @ViewChild('menuRef') menuElement!: ElementRef<HTMLElement>;
   @Input() heroRef!: ElementRef<HTMLElement>;
 
-  
   goToLogin() {
     this.router.navigate(['/login']);
   }
@@ -36,7 +36,6 @@ export class SidebarsComponent  {
   }
 
   toggleCart() {
-
     this.cartActive = !this.cartActive;
     if (this.cartElement) {
       this.cartElement.nativeElement.style.visibility = this.cartActive ? 'visible' : 'hidden';
@@ -46,6 +45,6 @@ export class SidebarsComponent  {
       this.heroRef.nativeElement.style.position =  this.cartActive ? 'fixed' : 'relative';
       this.cartElement.nativeElement.style.filter = '';
     }
-
   }
+
 }
