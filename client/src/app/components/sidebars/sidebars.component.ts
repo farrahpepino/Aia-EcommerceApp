@@ -17,10 +17,6 @@ export class SidebarsComponent  {
   @ViewChild('menuRef') menuElement!: ElementRef<HTMLElement>;
   @Input() heroRef!: ElementRef<HTMLElement>;
 
- 
-
-
- 
   
   goToLogin() {
     this.router.navigate(['/login']);

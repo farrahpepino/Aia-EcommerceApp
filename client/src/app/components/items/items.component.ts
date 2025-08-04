@@ -25,7 +25,6 @@ export class ItemsComponent {
     this.ProductsService.getProducts().subscribe(
       (data) => { 
         this.products = data;
-        console.log('Products loaded:', data);
       },
       (error) => {
         console.error('Error fetching products:', error);

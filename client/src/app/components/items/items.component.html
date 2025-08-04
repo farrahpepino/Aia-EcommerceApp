@@ -1,22 +1,4 @@
-<!-- <div class="container" >
-    <div class="item">
-        <img src="assets/orseund3.webp" alt="item"/>
-        <p>Orseund Iris The Weekend Knit Cardigane</p>
-        <div class="details">
-            <p>345 USD</p>
-            <div   class="parent" >
-                <button class="p-10" (mouseenter)="showSizes = true">add to cart</button>
-                <div class="sizes child" [class.visible]="showSizes"  (mouseleave)="showSizes = false">
-                    <button>XS</button>
-                    <button>S</button>
-                    <button>M</button>
-                    <button>L</button>
-                    <button>XL</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
+
 <div class="container">
     <div class="item" *ngFor="let product of products">
         <img 
@@ -35,4 +17,4 @@
       </div>
     </div>
   </div>
-  
+
