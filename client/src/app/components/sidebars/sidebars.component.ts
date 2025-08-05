@@ -1,10 +1,11 @@
-import { Component, ElementRef, ViewChild, Input } from '@angular/core';
+import { Component, ElementRef, ViewChild, Input, OnInit } from '@angular/core';
 import { ItemsComponent } from '../items/items.component';
 import { Router, RouterLink } from '@angular/router';
-
+import { CommonModule } from '@angular/common';
+import { CartService } from '../../services/cart.service';
 @Component({
   selector: 'app-sidebars',
-  imports: [ItemsComponent, RouterLink],
+  imports: [RouterLink, CommonModule],
   standalone: true,
   templateUrl: './sidebars.component.html',
   styleUrl: './sidebars.component.css'
@@ -13,7 +14,7 @@ import { Router, RouterLink } from '@angular/router';
 export class SidebarsComponent  {
   menuActive = false;
   cartActive = false;
-  constructor(private router: Router) {}
+  constructor(private router: Router, private CartService: CartService) {}
   @ViewChild('cartRef') cartElement!: ElementRef<HTMLElement>;
   @ViewChild('menuRef') menuElement!: ElementRef<HTMLElement>;
   @Input() heroRef!: ElementRef<HTMLElement>;
@@ -35,6 +36,23 @@ export class SidebarsComponent  {
     }
   }
 
+  items: any[] = [];
+  totalQuantity: number = 0;
+  totalCost: number = 0;
+
+  ngOnInit(): void {
+    this.CartService.cart$.subscribe(cart => {
+      this.items = cart;
+      this.totalQuantity = this.CartService.getTotaQuantity();
+      this.totalCost = this.CartService.getOrderTotal();
+    });
+
+  }
+
+  removeItem(itemId: number, size: string) {
+    this.CartService.removeFromCart(itemId, size);
+  }
+
   toggleCart() {
     this.cartActive = !this.cartActive;
     if (this.cartElement) {
@@ -45,6 +63,7 @@ export class SidebarsComponent  {
       this.heroRef.nativeElement.style.position =  this.cartActive ? 'fixed' : 'relative';
       this.cartElement.nativeElement.style.filter = '';
     }
+   
   }
 
 }

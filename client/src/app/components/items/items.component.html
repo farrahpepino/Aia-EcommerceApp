@@ -7,11 +7,14 @@
         <div class="details">
         <p>{{ product.itemPrice }} USD</p>
         <div class="parent">
-          <button class="p-10" (mouseenter)="showSizes = true" (mouseleave)="showSizes = false">
+          <button>
             add to cart
           </button>
-          <div class="sizes child" [class.visible]="showSizes">
-            <button *ngFor="let size of product.itemSizes">{{ size }}</button>
+          
+          <div class="sizes child">
+            <div class="row" >
+              <button *ngFor="let size of product.itemSizes" (click)="handleSubmit(product, size, 1)">{{ size }}</button>
+            </div>
           </div>
         </div>
       </div>

@@ -9,7 +9,6 @@ import { SidebarsComponent } from '../../sidebars/sidebars.component';
   styleUrl: './shop.component.css'
 })
 
-
 export class ShopComponent  implements AfterViewInit{
   @ViewChild('heroRef') heroElement!: ElementRef<HTMLDivElement>;
   heroReady = false;

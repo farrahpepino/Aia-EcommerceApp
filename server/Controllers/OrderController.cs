@@ -17,6 +17,12 @@ namespace server.Controllers{
             _logger = logger;
         }
 
+        // [HttpPost['order']]
+        // public async Task<IActionResult> Order(FromBody[] Order order){
+            
+
+        // } 
+
         
 
 

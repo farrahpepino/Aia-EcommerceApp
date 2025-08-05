@@ -1,19 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { ProductsService, Product } from '../../services/products.service';
 import { CommonModule } from '@angular/common';
-
-
+import { CartService } from '../../services/cart.service';
 @Component({
   selector: 'app-items',
-  imports: [ CommonModule],
+  imports: [CommonModule],
   templateUrl: './items.component.html',
   styleUrl: './items.component.css'
 })
 export class ItemsComponent {
  
-  showSizes = false;
 
-  constructor(private ProductsService: ProductsService, ){}
+  constructor(private ProductsService: ProductsService, private CartService: CartService){}
   products: any;
 
  
@@ -31,5 +29,9 @@ export class ItemsComponent {
       }
     );
   }
-  
+  handleSubmit(product: Product, size: string, quantity: number) {
+    this.CartService.addToCart(product, size, quantity);
+  }
+
+
 }

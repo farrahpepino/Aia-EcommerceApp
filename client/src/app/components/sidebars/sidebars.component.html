@@ -19,7 +19,7 @@
 
 
 <div class="menu mobile" #menuRef [class.active]="menuActive">
-    <button (click)="toggleMenu()">x</button>
+    <button (click)="toggleMenu()" class="p-10">x</button>
     <ul>
         <li><a routerLink="/shop">shop</a></li>
         <li><a routerLink="/about">about</a></li>
@@ -27,27 +27,36 @@
 </div>
 
 <div class="cart mobile" #cartRef [class.active]="cartActive">
-    <button (click)="toggleCart()">x</button>
-    <p>cart (0)</p>
+    <button (click)="toggleCart()" class="p-10">x</button>
+    <p class="center">cart ({{totalQuantity}})</p>
 
-    <div class="row w-90" >
+    <div class="row w-90 p-40" *ngFor="let item of items" >
         <div class="row">
-            <img src="assets/orseund.webp" alt="item" class="item-cart-img" priority/>
+            <img
+            class="item-cart-img"
+            [src]="'http://localhost:5005' + item.imagePath" alt="{{ item.itemBrand + ' ' + item.ItemName }}" /> 
             <div class="details">
-                <p class="strong">Orseund Iris Minimal Bustier</p>
-                <p>245 USD</p>
-                <p>white</p>
-                <p>XS</p> 
+                <p class="strong">{{item.itemBrand}} {{item.itemName}}</p>
+                <p>{{item.price}} USD</p>
+                <p>{{item.color}}</p>
+                <p>{{item.size}}</p> 
             </div>
         </div>
 
         <div class="details">
-            <p class="strong">490 USD</p>
-            <p><button>+</button>2<button>-</button></p>
+            <p class="strong">{{ item.itemPrice * item.quantity }} USD</p>
+            <p><button>-</button>{{item.quantity}}<button>+</button></p>
+            <button (click)="removeItem(item.itemId, item.size)">remove</button>
         </div>
     </div>
 
-    <button class="p">continue to checkout</button>
+    <div class="p-40">
+        <div class="row sb">
+            <p class="strong">Total Cost</p> 
+            <p>{{totalCost}} USD</p>
+        </div>
+        <button class="center underline">continue to checkout</button>
+    </div>
 
     
 </div>

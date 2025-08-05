@@ -29,10 +29,10 @@ if (app.Environment.IsDevelopment())
 }
 
 // Middleware order matters
+// app.UseHttpsRedirection();
+app.UseStaticFiles();
 app.UseCors("AllowAngularDev");
-app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
-app.UseStaticFiles();
 
 app.Run();

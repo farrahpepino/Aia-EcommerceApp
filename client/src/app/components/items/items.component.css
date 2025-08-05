@@ -65,13 +65,7 @@ button{
     border: 1px solid #ccc; 
 }
 
-.sizes.visible {
-    display: flex;
-  }
 
-.p-10{
-    padding: 10px 10px;
-}
 
 .parent {
     position: relative;
@@ -84,6 +78,10 @@ button{
     display: none;
     position: absolute; 
 }
+.parent:hover .child {
+    display: flex;
+}
+
 .sizes button{
     color: white;
 }
@@ -92,4 +90,12 @@ button{
     .container{
         justify-content: center;
     }
+}
+
+.p-10{
+    padding: 10px 10px;
+}
+.row{
+    display: flex;
+    flex-direction: row;
 }

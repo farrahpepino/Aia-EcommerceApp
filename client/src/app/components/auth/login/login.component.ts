@@ -28,6 +28,7 @@ export class LoginComponent {
 
     this.UserService.loginUser(user).subscribe({
       next: () => this.Router.navigate(['']),
+      //guard this
       error: (err) => console.error('Login failed', err),
     });
   }
