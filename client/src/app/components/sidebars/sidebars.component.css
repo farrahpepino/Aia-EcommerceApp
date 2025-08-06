@@ -24,6 +24,9 @@
     margin: 0 auto;
 }
 
+.p{
+    padding: 10%;
+}
 
 .sb{
     justify-content: space-between;
@@ -152,7 +155,6 @@ ul{
     margin: 0;
     text-align: left;
 }
-
 
 
 

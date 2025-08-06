@@ -3,6 +3,7 @@ import { ItemsComponent } from '../items/items.component';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../services/cart.service';
+import { UserService } from '../../services/user.service';
 @Component({
   selector: 'app-sidebars',
   imports: [RouterLink, CommonModule],
@@ -14,13 +15,16 @@ import { CartService } from '../../services/cart.service';
 export class SidebarsComponent  {
   menuActive = false;
   cartActive = false;
-  constructor(private router: Router, private CartService: CartService) {}
+  constructor(private Router: Router, private CartService: CartService, private UserService: UserService) {}
   @ViewChild('cartRef') cartElement!: ElementRef<HTMLElement>;
   @ViewChild('menuRef') menuElement!: ElementRef<HTMLElement>;
   @Input() heroRef!: ElementRef<HTMLElement>;
 
   goToLogin() {
-    this.router.navigate(['/login']);
+    this.UserService.logout();
+    alert("loggedOut");
+    this.Router.navigate([''], { replaceUrl: true });
+ 
   }
 
   toggleMenu() {
@@ -63,7 +67,14 @@ export class SidebarsComponent  {
       this.heroRef.nativeElement.style.position =  this.cartActive ? 'fixed' : 'relative';
       this.cartElement.nativeElement.style.filter = '';
     }
-   
+  }
+
+  increaseQuantity(itemId: number, size: string){
+    this.CartService.increaseQuantity(itemId, size);
+  }
+
+  decreaseQuantity(itemId: number, size: string){
+    this.CartService.decreaseQuantity(itemId, size);
   }
 
 }

@@ -29,6 +29,7 @@ export class ItemsComponent {
       }
     );
   }
+  
   handleSubmit(product: Product, size: string, quantity: number) {
     this.CartService.addToCart(product, size, quantity);
   }

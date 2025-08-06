@@ -25,6 +25,7 @@ export class CartService {
       localStorage.setItem('cart', JSON.stringify(newCart));
     }
     this.cartSubject.next(newCart);
+    console.log(newCart)
   }
 
   addToCart(product: any, size: string, quantity: number) {
@@ -49,6 +50,28 @@ export class CartService {
     );
     this.updateCart(cart);
   }
+
+  increaseQuantity(itemId: number, size: string){
+    const cart = this.getCart();
+    const index = cart.findIndex(
+      (item) => item.itemId === itemId && item.size === size
+    );
+    
+    cart[index].quantity += 1;
+    this.updateCart(cart);
+  }
+
+  decreaseQuantity(itemId: number, size: string){
+    const cart = this.getCart();
+    const index = cart.findIndex(
+      (item) => item.itemId === itemId && item.size === size
+    );
+    
+    cart[index].quantity -= 1;
+    this.updateCart(cart);
+  }
+
+  
 
   getTotaQuantity(): number{
     if(typeof window === 'undefined') return 0;

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 export interface User{
   id: string,
@@ -17,11 +18,41 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   registerUser(user: User): Observable<User>{
-    return this.http.post<User>( `${this.api}/register`, user);
+    return this.http.post<User>( `${this.api}/register`, user).pipe(
+      tap(user => 
+      {this.setUser(user);
+      console.log(this.getUser());}
+      )  
+    );
   }
 
   loginUser(user: Partial<User>): Observable<User> {
-    return this.http.post<User>(`${this.api}/login`, user);
+
+    return this.http.post<User>(`${this.api}/login`, user).pipe(
+      tap(user => 
+      {this.setUser(user);
+      console.log(this.getUser());
+    }
+      )  
+    );
+
+  }
+
+  setUser(user: User) {
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  getUser(): User | null {
+    const userJson = localStorage.getItem('user');
+    return userJson ? JSON.parse(userJson) : null;
+  }
+
+  isLoggedIn(): boolean {
+    return !!this.getUser();
+  }
+
+  logout() {
+    localStorage.removeItem('user');
   }
 
 }

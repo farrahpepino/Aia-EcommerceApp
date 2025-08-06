@@ -45,7 +45,7 @@
 
         <div class="details">
             <p class="strong">{{ item.itemPrice * item.quantity }} USD</p>
-            <p><button>-</button>{{item.quantity}}<button>+</button></p>
+            <p><button (click)="decreaseQuantity(item.itemId, item.size)">-</button>{{item.quantity}}<button (click)="increaseQuantity(item.itemId, item.size)">+</button></p>
             <button (click)="removeItem(item.itemId, item.size)">remove</button>
         </div>
     </div>
@@ -55,7 +55,7 @@
             <p class="strong">Total Cost</p> 
             <p>{{totalCost}} USD</p>
         </div>
-        <button class="center underline">continue to checkout</button>
+        <button class="p center underline">continue to checkout</button>
     </div>
 
     

@@ -27,8 +27,11 @@ export class LoginComponent {
     }
 
     this.UserService.loginUser(user).subscribe({
-      next: () => this.Router.navigate(['']),
-      //guard this
+  
+      next: () => {
+        this.Router.navigate([''], { replaceUrl: true });
+      },
+      //guard
       error: (err) => console.error('Login failed', err),
     });
   }

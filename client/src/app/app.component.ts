@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { CheckoutComponent } from './components/main/checkout/checkout.component';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, CheckoutComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

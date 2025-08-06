@@ -4,15 +4,14 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { HeroComponent } from './components/main/hero/hero.component';
 import { ShopComponent } from './components/main/shop/shop.component';
 import { AboutComponent } from './components/about/about.component';
-
 export const routes: Routes = [
     {
         path: 'login',
-        component: LoginComponent
+        component: LoginComponent,
     },
     {
         path: 'register',
-        component: RegisterComponent
+        component: RegisterComponent,
     },
     {
         path: '',
