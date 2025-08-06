@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SidebarsComponent } from '../sidebars/sidebars.component';
+import { SidebarsComponent } from '../../sidebars/sidebars.component';
 import { ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 

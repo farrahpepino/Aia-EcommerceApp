@@ -1,5 +1,4 @@
 import { Component, ElementRef, ViewChild, Input, OnInit } from '@angular/core';
-import { ItemsComponent } from '../items/items.component';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../services/cart.service';
@@ -75,6 +74,10 @@ export class SidebarsComponent  {
 
   decreaseQuantity(itemId: number, size: string){
     this.CartService.decreaseQuantity(itemId, size);
+  }
+
+  checkout(){
+    this.Router.navigate(['checkout']);
   }
 
 }

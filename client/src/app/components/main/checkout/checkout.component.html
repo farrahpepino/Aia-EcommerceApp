@@ -1,1 +1,35 @@
-<p>checkout works!</p>
+
+<div class="container">
+    <div class="row sb">
+        <button (click)="goBack()"><</button>
+        <p class="center">order ({{totalQuantity}})</p>
+    </div>
+    <div class="row w-90 p-40" *ngFor="let item of items" >
+        <div class="row">
+            <img
+            class="item-cart-img"
+            [src]="'http://localhost:5005' + item.imagePath" alt="{{ item.itemBrand + ' ' + item.ItemName }}" /> 
+            <div class="details">
+                <p class="strong">{{item.itemBrand}} {{item.itemName}}</p>
+                <p>{{item.price}} USD</p>
+                <p>{{item.color}}</p>
+                <p>{{item.size}}</p> 
+            </div>
+        </div>
+
+        <div class="details">
+            <p class="strong">{{ item.itemPrice * item.quantity }} USD</p>
+            <p>{{item.quantity}}</p>
+        </div>
+    </div>
+
+    <div class="p-40">
+        <div class="row sb">
+            <p class="strong">Total Cost</p> 
+            <p>{{totalCost}} USD</p>
+        </div>
+        <button class="p center underline">place order</button>
+    </div>
+
+    
+</div>
