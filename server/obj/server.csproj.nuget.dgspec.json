@@ -44,6 +44,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "Braintree": {
+              "target": "Package",
+              "version": "[5.34.0, )"
+            },
             "Dapper": {
               "target": "Package",
               "version": "[2.1.66, )"
@@ -59,10 +63,6 @@
             "MySql.Data": {
               "target": "Package",
               "version": "[9.3.0, )"
-            },
-            "Stripe.net": {
-              "target": "Package",
-              "version": "[48.4.0, )"
             }
           },
           "imports": [

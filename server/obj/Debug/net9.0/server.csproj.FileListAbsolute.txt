@@ -98,3 +98,6 @@
 /Users/farrahpepino/Documents/GitHub/Aia/server/obj/Debug/net9.0/ref/server.dll
 /Users/farrahpepino/Documents/GitHub/Aia/server/bin/Debug/net9.0/Data/Products.json
 /Users/farrahpepino/Documents/GitHub/Aia/server/bin/Debug/net9.0/server.staticwebassets.runtime.json
+/Users/farrahpepino/Documents/GitHub/Aia/server/bin/Debug/net9.0/Newtonsoft.Json.dll
+/Users/farrahpepino/Documents/GitHub/Aia/server/bin/Debug/net9.0/Braintree.dll
+/Users/farrahpepino/Documents/GitHub/Aia/server/bin/Debug/net9.0/System.Xml.XPath.XmlDocument.dll

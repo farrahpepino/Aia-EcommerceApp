@@ -21,8 +21,7 @@ export class SidebarsComponent  {
 
   goToLogin() {
     this.UserService.logout();
-    alert("loggedOut");
-    this.Router.navigate([''], { replaceUrl: true });
+    this.Router.navigate(['login'], { replaceUrl: true });
  
   }
 

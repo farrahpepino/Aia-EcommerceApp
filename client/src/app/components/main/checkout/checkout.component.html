@@ -24,11 +24,16 @@
     </div>
 
     <div class="p-40">
-        <div class="row sb">
-            <p class="strong">Total Cost</p> 
-            <p>{{totalCost}} USD</p>
-        </div>
-        <button class="p center underline">place order</button>
+            <div class="row sb">
+                <p class="strong">Total Cost</p> 
+                <p>{{totalCost}} USD</p>
+            </div>
+            <div class="row sb">
+                <p class="strong">With tax</p> 
+                <p>{{totalCost*0.07+totalCost}} USD</p>
+            </div>
+        <div id="dropin-container"></div>
+        <button class="p center underline" (click)="payNow()">pay now</button>
     </div>
 
     
