@@ -101,3 +101,8 @@
 /Users/farrahpepino/Documents/GitHub/Aia/server/bin/Debug/net9.0/Newtonsoft.Json.dll
 /Users/farrahpepino/Documents/GitHub/Aia/server/bin/Debug/net9.0/Braintree.dll
 /Users/farrahpepino/Documents/GitHub/Aia/server/bin/Debug/net9.0/System.Xml.XPath.XmlDocument.dll
+/Users/farrahpepino/Documents/GitHub/Aia/server/bin/Debug/net9.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/farrahpepino/Documents/GitHub/Aia/server/bin/Debug/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/farrahpepino/Documents/GitHub/Aia/server/bin/Debug/net9.0/Microsoft.IdentityModel.Logging.dll
+/Users/farrahpepino/Documents/GitHub/Aia/server/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
+/Users/farrahpepino/Documents/GitHub/Aia/server/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll

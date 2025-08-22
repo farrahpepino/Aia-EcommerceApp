@@ -14,7 +14,7 @@ builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<AuthRepository>();
 builder.Services.AddScoped<ItemService>();
 builder.Services.AddScoped<ItemRepository>();
-
+builder.Services.AddScoped<IJwtService, JwtService>();
 
 // CORS for Angular dev server
 builder.Services.AddCors(options =>

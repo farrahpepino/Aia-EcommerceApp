@@ -1,12 +1,12 @@
 namespace server.Models{
     public class ItemModel{
-        public int ItemId { get; set; }
-        public string ItemName { get; set; } 
-        public string ItemBrand {get; set; } 
-        public string ItemSKU {get; set; }
-        public string ImagePath {get; set;}
-        public decimal ItemPrice { get; set; }
-        public string Color {get; set;}
-        public List<string> ItemSizes { get; set; }
+        public int ItemId { get; set; } = 0;
+        public string ItemName { get; set; } = string.Empty;
+        public string ItemBrand {get; set; } = string.Empty;
+        public string ItemSKU {get; set; } = string.Empty;
+        public string ImagePath {get; set;} = string.Empty;
+        public decimal ItemPrice { get; set; } = 0m;
+        public string Color {get; set;} = string.Empty;
+        public List<string> ItemSizes { get; set; } = new List<string>();
     }
 }
