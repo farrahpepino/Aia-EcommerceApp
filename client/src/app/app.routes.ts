@@ -5,29 +5,42 @@ import { HeroComponent } from './components/main/hero/hero.component';
 import { ShopComponent } from './components/main/shop/shop.component';
 import { AboutComponent } from './components/main/about/about.component';
 import { CheckoutComponent } from './components/main/checkout/checkout.component';
+import { authGuard } from './guards/auth.guard';
+import {guestGuard} from './guards/guest.guard';
 export const routes: Routes = [
     {
-        path: '',
-        component: HeroComponent
+        path: 'home',
+        component: HeroComponent,
+        canActivate: [authGuard]
     },
     {
-        path: 'login',
+        path: '',
         component: LoginComponent,
+        canActivate: [guestGuard]
+
     },
     {
         path: 'register',
         component: RegisterComponent,
+        canActivate: [guestGuard]
+
     },
     {
         path: 'shop',
-        component: ShopComponent
+        component: ShopComponent,
+        canActivate: [authGuard]
+
     },
     {
         path: 'about',
-        component: AboutComponent
+        component: AboutComponent,
+        canActivate: [authGuard]
+
     },
     {
         path: 'checkout',
-        component: CheckoutComponent
+        component: CheckoutComponent,
+        canActivate: [authGuard]
+
     }
 ];

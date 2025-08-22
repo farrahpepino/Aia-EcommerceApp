@@ -20,8 +20,9 @@ export class UserService {
   registerUser(user: User): Observable<User>{
     return this.http.post<User>( `${this.api}/register`, user).pipe(
       tap(user => 
-      {this.setUser(user);
-      console.log(this.getUser());}
+      {
+      this.setUser(user);
+      }
       )  
     );
   }
@@ -30,9 +31,9 @@ export class UserService {
 
     return this.http.post<User>(`${this.api}/login`, user).pipe(
       tap(user => 
-      {this.setUser(user);
-      console.log(this.getUser());
-    }
+      {
+        this.setUser(user);
+      }
       )  
     );
 

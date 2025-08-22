@@ -1,7 +1,8 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { CartService } from '../../../services/cart.service';
 import { CommonModule, Location } from '@angular/common';
-
+import { Router } from '@angular/router';
+import { inject } from '@angular/core';
 @Component({
   selector: 'app-checkout',
   standalone: true,
@@ -14,6 +15,7 @@ export class CheckoutComponent implements OnInit {
   totalQuantity: number = 0;
   totalCost: number = 0;
   dropinInstance: any;
+  router = inject(Router);
 
   constructor(
     private CartService: CartService,
@@ -34,6 +36,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   payNow(){
-    alert("Taking you to payment system");
+    alert("Paid successfully! Taking you back to home...");
+    this.router.navigate(['/home'])
   }
 }

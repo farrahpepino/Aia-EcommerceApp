@@ -25,7 +25,6 @@ export class CartService {
       localStorage.setItem('cart', JSON.stringify(newCart));
     }
     this.cartSubject.next(newCart);
-    console.log(newCart)
   }
 
   addToCart(product: any, size: string, quantity: number) {

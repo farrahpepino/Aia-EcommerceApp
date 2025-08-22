@@ -35,10 +35,8 @@ export class RegisterComponent {
 
     this.UserService.registerUser(newUser).subscribe({
       next: () => {
-        alert(newUser);
-        this.Router.navigate([''], { replaceUrl: true });
+        this.Router.navigate(['home'], { replaceUrl: true });
       },
-      //guard this
       error: (err) => console.error('Registration failed', err),
     });
   }
