@@ -1,12 +1,19 @@
 using server.Data;
+using server.Services;
+using server.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add required services
+
 builder.Services.AddControllers();              
 builder.Services.AddAuthorization();            
 builder.Services.AddOpenApi();  
 builder.Services.AddSingleton<DapperContext>();
+builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<AuthRepository>();
+builder.Services.AddScoped<ItemService>();
+builder.Services.AddScoped<ItemRepository>();
 
 
 // CORS for Angular dev server
@@ -14,7 +21,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngularDev", policy =>
     {
-        policy.WithOrigins("http://localhost:4200")
+        policy.WithOrigins("*")
               .AllowAnyHeader()
               .AllowAnyMethod();
     });

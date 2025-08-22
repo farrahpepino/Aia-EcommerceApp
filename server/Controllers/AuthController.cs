@@ -1,61 +1,46 @@
-using Dapper;
-using server.Data;
 using server.Models;
+using server.Services;
 using Microsoft.AspNetCore.Mvc;
-
-//ilogger
-//change user to registration model
-// registration: if user exists, send status message
-// add jwt
 
 namespace server.Controllers{
     [ApiController]
 
     public class AuthController: ControllerBase{
-        private readonly DapperContext _context;
-        private readonly ILogger<AuthController> _logger;
 
-        public AuthController (DapperContext context,  ILogger<AuthController> logger){
-            _context = context;
-            _logger = logger;
+        private readonly AuthService _authService;
+
+        public AuthController (AuthService authService){
+            _authService = authService;
         }
 
         [HttpPost("register")]
         public async Task<IActionResult> RegisterUser([FromBody] User user)
-        {
-            var query = "INSERT INTO User (Id, Username, Email, Password) VALUES (@Id, @Username, @Email, @Password)";
-            using var connection = _context.CreateConnection();
-
+        {  
             try{
-                var result = await connection.ExecuteAsync(query, user);
+                var newUser = await _authService.RegisterUser(user);
+                if (newUser == null)
+                    return BadRequest();
                 return Ok(new {message="User registered successfully"});
             }
             catch (Exception ex){
                 return StatusCode(500, new { message = "Server error", detail = ex.Message });
             }
-
         }
 
         [HttpPost("login")]
         public async Task<IActionResult> LoginUser([FromBody] User user) {
 
-            var query = "SELECT * FROM User WHERE Username = @Username";
-            using var connection = _context.CreateConnection();
-            try {
-                var result = await connection.QueryFirstOrDefaultAsync<User>(query, new { Username = user.Username });
+        try{
+            var response = await _authService.LoginUser(user);
+            if(response == false)
+                return Unauthorized(new { message = "Invalid username or password" });
 
-                if (result == null)
-                    return Unauthorized(new { message = "Invalid username or password" });
-
-                if (result.Password != user.Password) 
-                    return Unauthorized(new { message = "Invalid username or password" });
-
-                return Ok(new { message = "Login successful" });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { message = "Server error", detail = ex.Message });
-            }
+            return Ok(new { message = "Login successful" });
+            
+        }
+        catch (Exception ex){
+            return StatusCode(500, new { message = "Server error", detail = ex.Message });
+        }
         }
     }
 }
