@@ -44,8 +44,12 @@ export class UserService {
   }
 
   getUser(): User | null {
-    const userJson = localStorage.getItem('user');
-    return userJson ? JSON.parse(userJson) : null;
+    if (typeof localStorage !== 'undefined') {
+      return JSON.parse(localStorage.getItem('user') || 'null');
+    }
+    return null;
+    // const userJson = localStorage.getItem('user');
+    // return userJson ? JSON.parse(userJson) : null;
   }
 
   isLoggedIn(): boolean {
