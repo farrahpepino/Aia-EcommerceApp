@@ -1,4 +1,4 @@
-using server.Models;
+using server.Dtos;
 using server.Services;
 using Microsoft.AspNetCore.Mvc;
 

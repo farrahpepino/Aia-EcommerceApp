@@ -1,4 +1,4 @@
-using server.Models;
+using server.Dtos;
 using server.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,7 +14,7 @@ namespace server.Controllers{
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> RegisterUser([FromBody] User user)
+        public async Task<IActionResult> RegisterUser([FromBody] UserDto user)
         {  
             try{
                 var newUser = await _authService.RegisterUser(user);
@@ -28,7 +28,7 @@ namespace server.Controllers{
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> LoginUser([FromBody] User user) {
+        public async Task<IActionResult> LoginUser([FromBody] UserDto user) {
 
         try{
             var response = await _authService.LoginUser(user);

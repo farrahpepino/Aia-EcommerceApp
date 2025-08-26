@@ -1,4 +1,4 @@
-using server.Models;
+using server.Dtos;
 using server.Controllers;
 using server.Repositories;
 
@@ -11,11 +11,11 @@ namespace server.Services{
             _authRepository = authRepository;
         }
 
-        public async Task<User> RegisterUser(User newUser){
+        public async Task<UserDto> RegisterUser(UserDto newUser){
             return await _authRepository.RegisterUser(newUser);
         }
 
-        public async Task<bool> LoginUser(User user){
+        public async Task<bool> LoginUser(UserDto user){
             var response = await _authRepository.LoginUser(user);
             if(response==null || response.Password != user.Password) 
                 return false;

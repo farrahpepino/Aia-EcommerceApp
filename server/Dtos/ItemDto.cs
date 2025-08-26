@@ -1,5 +1,5 @@
-namespace server.Models{
-    public class ItemModel{
+namespace server.Dtos{
+    public class ItemDto{
         public int ItemId { get; set; } = 0;
         public string ItemName { get; set; } = string.Empty;
         public string ItemBrand {get; set; } = string.Empty;

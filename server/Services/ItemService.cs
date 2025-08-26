@@ -1,4 +1,4 @@
-using server.Models;
+using server.Dtos;
 using server.Repositories;
 
 namespace server.Services
@@ -12,7 +12,7 @@ namespace server.Services
             _repository = repository;
         }
 
-        public Task<List<ItemModel>> GetProductsAsync()
+        public Task<List<ItemDto>> GetProductsAsync()
         {
             return _repository.GetProductsAsync();
         }

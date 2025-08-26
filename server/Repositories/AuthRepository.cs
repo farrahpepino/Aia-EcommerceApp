@@ -1,5 +1,5 @@
 using server.Data;
-using server.Models;
+using server.Dtos;
 using Dapper;
 
 namespace server.Repositories{
@@ -13,18 +13,16 @@ namespace server.Repositories{
             _context = context;
         }
 
-        public async Task<User> RegisterUser(User newUser){
+        public async Task<UserDto> RegisterUser(UserDto newUser){
             using var connection = _context.CreateConnection();
             await connection.ExecuteAsync(InsertUserQuery, newUser);
             return newUser;
         }
 
-        public async Task<User?> LoginUser(User newUser){
+        public async Task<UserDto?> LoginUser(UserDto newUser){
             using var connection = _context.CreateConnection();
-            return await connection.QueryFirstOrDefaultAsync<User>(SelectUserByUsernameQuery, new { Username = newUser.Username });
+            return await connection.QueryFirstOrDefaultAsync<UserDto>(SelectUserByUsernameQuery, new { Username = newUser.Username });
         }
-        
-
 
     }
 
