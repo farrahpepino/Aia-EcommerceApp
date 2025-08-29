@@ -12,7 +12,6 @@ namespace server.Repositories{
 
         private const string InsertOrderQuery = @"INSERT INTO Orders (Items, OrderId, OrderedAt, CustomerId) VALUES (@Items, @OrderId, @OrderedAt, @CustomerId)";
         // have to think about the items 
-      
     
         public async Task CreateOrder(OrderDto order){
             var connection = await _context.CreateConnection();

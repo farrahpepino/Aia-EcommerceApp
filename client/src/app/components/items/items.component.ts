@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import { ProductsService, Product } from '../../services/products.service';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../services/cart.service';
