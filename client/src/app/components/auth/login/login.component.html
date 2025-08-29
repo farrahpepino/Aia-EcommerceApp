@@ -19,10 +19,10 @@
         <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
             <input type="text" placeholder="Username" formControlName="username" required />
             <input type="password" placeholder="Password" formControlName="password" required />
-            <button type="submit" [disabled]="loginForm.invalid">Sign in</button>
+            <button type="submit" [disabled]="loginForm.invalid" (click)="handleSubmit()">Sign in</button>
         </form>
         <br>
-        <p>Don't have an account? <a routerLink="/register"><strong>Sign up.</strong></a></p>
+        <p class="f-10">Don't have an account? <a routerLink="/register"><strong class="f-10">Sign up.</strong></a></p>
     </section>
 </div>
 

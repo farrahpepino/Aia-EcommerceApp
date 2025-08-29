@@ -21,10 +21,10 @@
             <input type="email" placeholder="Email" formControlName="email" required />
             <input type="password" placeholder="Password" formControlName="password" required />
             <input type="password" placeholder="Confirm Password" formControlName="confirmPassword" required />
-            <button type="submit" [disabled]="registerForm.invalid">Sign up</button>
+            <button type="submit" [disabled]="registerForm.invalid" (click)="handleSubmit()">Sign up</button>
         </form>
         <br>
-        <p>Already have an account? <a routerLink="/"><strong>Sign in.</strong></a></p>
+        <p class="f-10">Already have an account? <a routerLink="/"><strong class="f-10">Sign in.</strong></a></p>
 
     </section>
 </div>

@@ -1,11 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
+a{
+    color: black;
+}
+  
 body {
     font-family: "Montserrat", sans-serif;
     font-weight: 300;
     margin: 0;
 }
 
-a{
-    color: black;
+.f-10{
+    font-size: 10px;
 }
-  
