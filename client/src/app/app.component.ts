@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { CheckoutComponent } from './components/main/checkout/checkout.component';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CheckoutComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
