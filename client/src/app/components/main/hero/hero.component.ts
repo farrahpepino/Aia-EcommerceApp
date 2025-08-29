@@ -6,7 +6,7 @@ import { SidebarsComponent } from '../../sidebars/sidebars.component';
 
 @Component({
   selector: 'app-hero',
-  imports: [ItemsComponent, RouterLink, SidebarsComponent, CommonModule],
+  imports: [SidebarsComponent, CommonModule],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.css',
 
