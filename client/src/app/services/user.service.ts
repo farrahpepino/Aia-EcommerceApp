@@ -1,14 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { User } from '../models/UserModel';
+import { AuthResponse } from '../models/AuthResponse';
 
-export interface User{
-  id: string,
-  email: string,
-  password: string,
-  username: string
-}
 @Injectable({
   providedIn: 'root'
 })
@@ -17,39 +12,23 @@ export class UserService {
   private api = "http://localhost:5005"
   constructor(private http: HttpClient) { }
 
-  registerUser(user: User): Observable<User>{
-    return this.http.post<User>( `${this.api}/register`, user).pipe(
-      tap(user => 
-      {
-      this.setUser(user);
-      }
-      )  
-    );
+  registerUser(user: User): Observable<AuthResponse>{
+    return this.http.post<AuthResponse>( `${this.api}/register`, user);
   }
 
-  loginUser(user: Partial<User>): Observable<User> {
-
-    return this.http.post<User>(`${this.api}/login`, user).pipe(
-      tap(user => 
-      {
-        this.setUser(user);
-      }
-      )  
-    );
-
+  loginUser(user: Partial<User>): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${this.api}/login`, user);
   }
 
-  setUser(user: User) {
-    localStorage.setItem('user', JSON.stringify(user));
+  setUser(token: string) {
+    localStorage.setItem('token', JSON.stringify(token));
   }
 
-  getUser(): User | null {
+  getUser(): string | null {
     if (typeof localStorage !== 'undefined') {
-      return JSON.parse(localStorage.getItem('user') || 'null');
+      return JSON.parse(localStorage.getItem('token') || 'null');
     }
     return null;
-    // const userJson = localStorage.getItem('user');
-    // return userJson ? JSON.parse(userJson) : null;
   }
 
   isLoggedIn(): boolean {
@@ -57,7 +36,7 @@ export class UserService {
   }
 
   logout() {
-    localStorage.removeItem('user');
+    localStorage.removeItem('token');
   }
 
 }

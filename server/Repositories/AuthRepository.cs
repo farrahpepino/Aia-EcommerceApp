@@ -13,15 +13,18 @@ namespace server.Repositories{
             _context = context;
         }
 
-        public async Task<UserDto> RegisterUser(UserDto newUser){
+        public async Task<UserDto?> RegisterUser(UserDto newUser){
             using var connection = _context.CreateConnection();
-            await connection.ExecuteAsync(InsertUserQuery, newUser);
-            return newUser;
+            var response = await connection.ExecuteAsync(InsertUserQuery, newUser);
+            if (response>0)
+                return newUser;
+            return null;
         }
 
         public async Task<UserDto?> LoginUser(UserDto newUser){
             using var connection = _context.CreateConnection();
-            return await connection.QueryFirstOrDefaultAsync<UserDto>(SelectUserByUsernameQuery, new { Username = newUser.Username });
+            var response = await connection.QueryFirstOrDefaultAsync<UserDto>(SelectUserByUsernameQuery, new { Username = newUser.Username });
+            return response;
         }
 
     }

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { ProductsService, Product } from '../../services/products.service';
+import { ProductsService } from '../../services/products.service';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../services/cart.service';
+import { Product } from '../../models/ProductModel';
 @Component({
   selector: 'app-items',
   imports: [CommonModule],

@@ -20,7 +20,7 @@ namespace server.Controllers{
                 var newUser = await _authService.RegisterUser(user);
                 if (newUser == null)
                     return BadRequest();
-                return Ok(new {message="User registered successfully"});
+                return Ok(new {message="User registered successfully", token=newUser});
             }
             catch (Exception ex){
                 return StatusCode(500, new { message = "Server error", detail = ex.Message });
@@ -32,10 +32,10 @@ namespace server.Controllers{
 
         try{
             var response = await _authService.LoginUser(user);
-            if(response == false)
-                return Unauthorized(new { message = "Invalid username or password" });
+            if(response == null)
+                return Unauthorized(new { message = "Invalid username or password"});
 
-            return Ok(new { message = "Login successful" });
+            return Ok(new { message = "Login successful", token=response  });
             
         }
         catch (Exception ex){

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
-import { User, UserService } from '../../../services/user.service';
+import { UserService } from '../../../services/user.service';
 import { v4 as uuidv4 } from 'uuid';
 import {RouterLink, Router} from '@angular/router';
+import { User } from '../../../models/UserModel';
 @Component({
   selector: 'app-register',
   imports: [ReactiveFormsModule, RouterLink],
@@ -34,7 +35,8 @@ export class RegisterComponent {
     }
 
     this.UserService.registerUser(newUser).subscribe({
-      next: () => {
+      next: (data) => {
+        this.UserService.setUser(data.token);
         this.Router.navigate(['home'], { replaceUrl: true });
       },
       error: (err) => console.error('Registration failed', err),

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
-import { User, UserService } from '../../../services/user.service';
+import { UserService } from '../../../services/user.service';
 import {RouterLink, Router} from '@angular/router';
+import { User } from '../../../models/UserModel';
 
 @Component({
   selector: 'app-login',
@@ -27,7 +28,8 @@ export class LoginComponent {
     }
 
     this.UserService.loginUser(user).subscribe({
-      next: () => {
+      next: (data) => {
+        this.UserService.setUser(data.token);
         this.Router.navigate(['home'], { replaceUrl: true });
       },
       error: (err) => console.error('Login failed', err),
