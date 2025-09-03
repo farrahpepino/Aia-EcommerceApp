@@ -8,5 +8,8 @@ namespace server.Dtos{
         public decimal ItemPrice { get; set; } = 0m;
         public string Color {get; set;} = string.Empty;
         public List<string> ItemSizes { get; set; } = new List<string>();
+        public int? Quantity {get; set;}
+        public string? Size {get; set;}
+
     }
 }

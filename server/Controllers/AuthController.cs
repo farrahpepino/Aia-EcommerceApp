@@ -16,31 +16,22 @@ namespace server.Controllers{
         [HttpPost("register")]
         public async Task<IActionResult> RegisterUser([FromBody] UserDto user)
         {  
-            try{
-                var newUser = await _authService.RegisterUser(user);
-                if (newUser == null)
-                    return BadRequest();
-                return Ok(new {message="User registered successfully", token=newUser});
-            }
-            catch (Exception ex){
-                return StatusCode(500, new { message = "Server error", detail = ex.Message });
-            }
+          
+            var newUser = await _authService.RegisterUser(user);
+            if (newUser == null)
+                return BadRequest();
+            return Ok(new {message="User registered successfully", token=newUser});
+           
         }
 
         [HttpPost("login")]
         public async Task<IActionResult> LoginUser([FromBody] UserDto user) {
-
-        try{
             var response = await _authService.LoginUser(user);
             if(response == null)
                 return Unauthorized(new { message = "Invalid username or password"});
 
             return Ok(new { message = "Login successful", token=response  });
             
-        }
-        catch (Exception ex){
-            return StatusCode(500, new { message = "Server error", detail = ex.Message });
-        }
         }
     }
 }

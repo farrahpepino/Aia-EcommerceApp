@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Product } from '../models/ProductModel';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +10,7 @@ export class CartService {
   private cartSubject = new BehaviorSubject<any[]>([]);
   cart$ = this.cartSubject.asObservable();
 
-  constructor() {
+  constructor(private http: HttpClient) {
     if (typeof window !== 'undefined') {
       const cart = this.getCart(); 
       this.cartSubject.next(cart);
@@ -70,8 +72,6 @@ export class CartService {
     this.updateCart(cart);
   }
 
-  
-
   getTotaQuantity(): number{
     if(typeof window === 'undefined') return 0;
     const cart = this.getCart();
@@ -87,6 +87,20 @@ export class CartService {
     }, 0);
   }
 
+  order(cart: Product[], totalQuantity: number, totalCost: number ){
+    console.log(cart);
+    console.log(totalCost);
+    console.log(totalQuantity);
+
+    const customerId = "CS1"; //UPDATE LATER
+
+  
+
+      return this.http.post("http://localhost:5005/order", {
+        cart: cart,
+        totalQuantity: totalQuantity, totalCost: totalCost, customerId: customerId
+      });
+  }
 
 
 }

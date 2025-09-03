@@ -3,6 +3,7 @@ import { CartService } from '../../../services/cart.service';
 import { CommonModule, Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { inject } from '@angular/core';
+import { Product } from '../../../models/ProductModel';
 @Component({
   selector: 'app-checkout',
   standalone: true,
@@ -11,7 +12,7 @@ import { inject } from '@angular/core';
   styleUrl: './checkout.component.css'
 })
 export class CheckoutComponent implements OnInit {
-  items: any[] = [];
+  items: Product[] = [];
   totalQuantity: number = 0;
   totalCost: number = 0;
   dropinInstance: any;
@@ -36,7 +37,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   payNow(){
-    alert("Paid successfully! Taking you back to home...");
+    this.CartService.order(this.items, this.totalQuantity, this.totalCost);
     this.router.navigate(['/home'])
   }
 }

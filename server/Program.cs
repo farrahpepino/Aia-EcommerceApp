@@ -1,6 +1,7 @@
 using server.Data;
 using server.Services;
 using server.Repositories;
+using server.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +36,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+app.UseMiddleware<GlobalException>();
 // Middleware order matters
 // app.UseHttpsRedirection();
 app.UseStaticFiles();

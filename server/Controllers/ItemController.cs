@@ -19,16 +19,8 @@ namespace server.Controllers
         [HttpGet("products")]
         public async Task<IActionResult> GetProducts()
         {
-            try
-            {
-                var products = await _itemService.GetProductsAsync();
-                return Ok(products);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Failed to get products");
-                return StatusCode(500, new { message = "Server error", detail = ex.Message });
-            }
+            var products = await _itemService.GetProductsAsync();
+            return Ok(products);
         }
     }
 }

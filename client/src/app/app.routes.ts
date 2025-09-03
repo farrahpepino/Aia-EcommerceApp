@@ -7,6 +7,7 @@ import { AboutComponent } from './components/main/about/about.component';
 import { CheckoutComponent } from './components/main/checkout/checkout.component';
 import { authGuard } from './guards/auth.guard';
 import {guestGuard} from './guards/guest.guard';
+
 export const routes: Routes = [
     {
         path: 'home',
@@ -16,13 +17,10 @@ export const routes: Routes = [
     {
         path: '',
         component: LoginComponent,
-        canActivate: [guestGuard]
-
     },
     {
         path: 'register',
         component: RegisterComponent,
-        canActivate: [guestGuard]
 
     },
     {
