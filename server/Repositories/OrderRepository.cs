@@ -1,13 +1,16 @@
-// using server.Data;
-// using Dapper;
-// using server.Dtos;
+using server.Data;
+using Dapper;
+using server.Dtos;
 
-// namespace server.Repositories{
-//     public class OrderRepository {
-//         private readonly DapperContext _context;
+namespace server.Repositories{
+    public class OrderRepository {
+        private readonly DapperContext _context;
 
-//         public DapperContext(DapperContext context){
-//             _context = context;
-//         }
-//     }
-// }
+        public DapperContext(DapperContext context){
+            _context = context;
+        }
+
+        //create order
+        //get order
+    }
+}
