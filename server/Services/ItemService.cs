@@ -12,7 +12,7 @@ namespace server.Services
             _repository = repository;
         }
 
-        public Task<List<ItemDto>> GetProductsAsync()
+        public Task<List<Item>> GetProductsAsync()
         {
             return _repository.GetProductsAsync();
         }

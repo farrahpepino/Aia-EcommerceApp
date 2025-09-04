@@ -51,7 +51,7 @@ export class CartService {
     );
     this.updateCart(cart);
   }
-
+  
   increaseQuantity(itemId: number, size: string){
     const cart = this.getCart();
     const index = cart.findIndex(
@@ -88,18 +88,6 @@ export class CartService {
   }
 
   order(cart: Product[], totalQuantity: number, totalCost: number ){
-    console.log(cart);
-    console.log(totalCost);
-    console.log(totalQuantity);
-
-    const customerId = "CS1"; //UPDATE LATER
-
-  
-
-      return this.http.post("http://localhost:5005/order", {
-        cart: cart,
-        totalQuantity: totalQuantity, totalCost: totalCost, customerId: customerId
-      });
   }
 
 

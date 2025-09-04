@@ -7,14 +7,14 @@ namespace server.Repositories
     {
         private readonly string _filePath = "Data/Products.json";
 
-        public async Task<List<ItemDto>> GetProductsAsync()
+        public async Task<List<Item>> GetProductsAsync()
         {
             if (!File.Exists(_filePath))
-                return new List<ItemDto>();
+                return new List<Item>();
 
             var json = await File.ReadAllTextAsync(_filePath);
-            var products = JsonSerializer.Deserialize<List<ItemDto>>(json);
-            return products ?? new List<ItemDto>();
+            var products = JsonSerializer.Deserialize<List<Item>>(json);
+            return products ?? new List<Item>();
         }
     }
 }

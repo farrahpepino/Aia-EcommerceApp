@@ -37,7 +37,8 @@ export class CheckoutComponent implements OnInit {
   }
 
   payNow(){
-    this.CartService.order(this.items, this.totalQuantity, this.totalCost);
+    alert("Paid successfully!")
     this.router.navigate(['/home'])
+    localStorage.removeItem("cart");
   }
 }
