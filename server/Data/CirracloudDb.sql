@@ -1,4 +1,3 @@
-DROP DATABASE IF EXISTS CirracloudDb;
 CREATE DATABASE CirracloudDb;
 USE CirracloudDb;
 
@@ -7,22 +6,4 @@ CREATE TABLE User (
     username VARCHAR(35) UNIQUE NOT NULL,
     email VARCHAR(150) NOT NULL,
     password VARCHAR(255) NOT NULL
-);
-
-CREATE TABLE Orders (
-    orderid VARCHAR(50) PRIMARY KEY,
-    customerid VARCHAR(50) NOT NULL,
-    orderedat DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    totalquantity INT NOT NULL DEFAULT 0,
-    totalcost DECIMAL(10,2) NOT NULL DEFAULT 0,
-    FOREIGN KEY (customerid) REFERENCES User(id) ON DELETE CASCADE
-);
-
-CREATE TABLE OrderItems (
-    orderitemid VARCHAR(50) PRIMARY KEY,
-    orderid VARCHAR(50) NOT NULL,
-    itemid VARCHAR(50) NOT NULL,
-    quantity INT NOT NULL DEFAULT 0,
-    itemprice DECIMAL(10,2) NOT NULL DEFAULT 0,
-    FOREIGN KEY (orderid) REFERENCES Orders(orderid) ON DELETE CASCADE
 );
