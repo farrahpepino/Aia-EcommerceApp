@@ -8,7 +8,7 @@
         <div class="row">
             <img
             class="item-cart-img"
-            [src]="'http://localhost:5005' + item.imagePath" alt="{{ item.itemBrand + ' ' + item.ItemName }}" /> 
+            [src]="'http://localhost:5005' + item.imagePath" alt="{{ item.itemBrand + ' ' + item.itemName }}" /> 
             <div class="details">
                 <p class="strong">{{item.itemBrand}} {{item.itemName}}</p>
                 <p>{{item.itemPrice}} USD</p>
@@ -18,8 +18,8 @@
         </div>
 
         <div class="details">
-            <p class="strong">{{ item.itemPrice * item.quantity }} USD</p>
-            <p>{{item.quantity}}</p>
+            <p class="strong">{{ item.itemPrice * item.quantity! }} USD</p>
+            <p>{{item.quantity!}}</p>
         </div>
     </div>
 

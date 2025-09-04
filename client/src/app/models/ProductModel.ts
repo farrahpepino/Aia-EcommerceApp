@@ -7,4 +7,6 @@ export interface Product {
     itemPrice: number;
     color: string;
     itemSizes: string[];
+    quantity?: number;
+    size?: string;
   }
