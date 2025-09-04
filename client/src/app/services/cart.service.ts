@@ -86,9 +86,4 @@ export class CartService {
       return total + (item.quantity * item.itemPrice);  
     }, 0);
   }
-
-  order(cart: Product[], totalQuantity: number, totalCost: number ){
-  }
-
-
 }
